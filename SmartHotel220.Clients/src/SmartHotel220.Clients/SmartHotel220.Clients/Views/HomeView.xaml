@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    x:Name="Self"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:carousel="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+    xmlns:extensions="clr-namespace:SmartHotel220.Clients.Core.MarkupExtensions"
+    xmlns:templates="clr-namespace:SmartHotel220.Clients.Core.Views.Templates;assembly=SmartHotel220.Clients.Core"
+    x:Class="SmartHotel220.Clients.Core.Views.HomeView"
+    BackgroundColor="{StaticResource BackgroundColor}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style 
+                x:Key="BookTextStyle" 
+                TargetType="Label"
+                BasedOn="{StaticResource RobotoMediumLabelStyle}">
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="FontSize" Value="{StaticResource LittleSize}" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="Margin" Value="24, 0" />
+            </Style>
+
+            <Style 
+                x:Key="BookConferenceTextStyle" 
+                TargetType="Label" 
+                BasedOn="{StaticResource BookTextStyle}">
+                <Setter Property="TextColor" Value="{StaticResource OrangeColor}" />
+            </Style>
+
+            <OnPlatform 
+                x:Key="ChartTextSize"
+                x:TypeArguments="x:Double"
+                Android="10"
+                WinPhone="11"/>
+            
+            <Style 
+                x:Key="ChartTextStyle" 
+                TargetType="Label"
+                BasedOn="{StaticResource RobotoSemiBoldLabelStyle}">
+                <Setter Property="TextColor" Value="{StaticResource BlackTextColor}" />
+                <Setter Property="FontSize" Value="{StaticResource ChartTextSize}" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="Margin" Value="16, 16, 0, 0" />
+            </Style>
+
+            <Style 
+                x:Key="BeGreenTextStyle" 
+                TargetType="Label"
+                BasedOn="{StaticResource ChartTextStyle}">
+                <Setter Property="Margin" Value="16, 0, 0, 0" />
+            </Style>
+
+            <Style 
+                x:Key="SuggestionsTextStyle" 
+                TargetType="Label"
+                BasedOn="{StaticResource RobotoMediumLabelStyle}">
+                <Setter Property="TextColor" Value="{StaticResource OrangeColor}" />
+                <Setter Property="FontSize" Value="{StaticResource LittleSize}" />
+                <Setter Property="Margin" Value="16, 16, 0, 0" />
+            </Style>
+
+            <Style 
+                x:Key="RestaurantTextStyle" 
+                TargetType="Label"
+                BasedOn="{StaticResource RobotoMediumLabelStyle}">
+                <Setter Property="TextColor" Value="{StaticResource BlackTextColor}" />
+                <Setter Property="FontSize" Value="{StaticResource LargeSize}" />
+                <Setter Property="Margin" Value="16, 0" />
+            </Style>
+
+            <Style 
+                x:Key="RestaurantDetailTextStyle" 
+                TargetType="Label" 
+                BasedOn="{StaticResource RestaurantTextStyle}">
+                <Setter Property="FontSize" Value="{StaticResource LittleSize}" />
+                <Setter Property="FontFamily" Value="{StaticResource FiraSansRegular}" />
+            </Style>
+
+            <Style 
+                x:Key="SeeAllTextStyle" 
+                TargetType="Label"
+                BasedOn="{StaticResource SuggestionsTextStyle}">
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+                <Setter Property="Margin" Value="0, 16, 16, 0" />
+            </Style>
+
+            <Style 
+                x:Key="GoMyRoomPanelStyle" 
+                TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="{StaticResource OrangeColor}" />
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="VerticalOptions" Value="End" />
+            </Style>
+
+            <Style 
+                x:Key="GoMyRoomPanel2Style" 
+                TargetType="Grid"
+                BasedOn="{StaticResource GoMyRoomPanelStyle}">
+                <Setter Property="HeightRequest" Value="48" />
+            </Style>
+            
+            <Color x:Key="BookConferencePanelColor">#378D93</Color>
+            
+            <Style 
+                x:Key="BookConferencePanelStyle" 
+                TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="{StaticResource BookConferencePanelColor}" />
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="VerticalOptions" Value="End" />
+            </Style>
+
+            <Style 
+                x:Key="BookConferencePanel2Style" 
+                TargetType="Grid"
+                BasedOn="{StaticResource BookConferencePanelStyle}">
+                <Setter Property="HeightRequest" Value="48" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  
+            Text="{extensions:Translate OpenDoor}"
+            Command="{Binding OpenDoorCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android" Value="ic_card" />
+                    <On Platform="UWP" Value="Assets/ic_card.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid
+                AutomationId="home"
+                RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4.6*" />
+                    <RowDefinition Height="5.4*" />
+                </Grid.RowDefinitions>
+
+                <!-- Карусель -->
+                <Grid
+                    Grid.Row="0">
+                    <Image
+                        Aspect="AspectFill">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android" Value="hero_image" />
+                                <On Platform="UWP" Value="Assets/hero_image.png" />
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+
+                    <carousel:CarouselViewControl 
+                        x:Name="Carousel"
+                        Orientation="Horizontal" 
+                        InterPageSpacing="0" 
+                        ShowIndicators="True"
+                        ShowArrows="True"
+                        CurrentPageIndicatorTintColor="{StaticResource WhiteColor}"
+                        ItemsSource="{Binding Notifications, Mode=OneWay}">
+                        <carousel:CarouselViewControl.ItemTemplate>
+                            <DataTemplate>
+                                <templates:NotificationItemTemplate 
+                                    TapCommand="{Binding BindingContext.NotificationsCommand, Source={x:Reference Self}}" />
+                            </DataTemplate>
+                        </carousel:CarouselViewControl.ItemTemplate>
+                    </carousel:CarouselViewControl>
+
+                    <!--Лого-->
+                    <Image 
+                        Margin="0, 30, 0, 12"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Center"
+                        HeightRequest="74"
+                        Aspect="AspectFit">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android" Value="simbol_logo" />
+                                <On Platform="UWP" Value="Assets/simbol_logo.png" />
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                </Grid>
+
+                <!-- Нет бронирования -->
+                <Grid
+                    IsVisible="{Binding HasBooking, Converter={StaticResource InverseBoolConverter}}"
+                    ColumnSpacing="0"
+                    RowSpacing="0"
+                    Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5.5*" />
+                        <RowDefinition Height="4.5*" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Забронировать номер -->
+                    <Grid
+                        Grid.Row="0"
+                        Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="75*" />
+                            <RowDefinition Height="25*" />
+                        </Grid.RowDefinitions>
+
+                        <ffimageloading:CachedImage 
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Aspect="AspectFill">
+                            <ffimageloading:CachedImage.Source>
+                                <OnPlatform x:TypeArguments="ImageSource">
+                                    <On Platform="Android" Value="img_1" />
+                                    <On Platform="UWP" Value="Assets/img_1.png" />
+                                </OnPlatform>
+                            </ffimageloading:CachedImage.Source>
+                        </ffimageloading:CachedImage>
+
+                        <Grid   
+                            Grid.Row="1"
+                            BackgroundColor="{StaticResource OrangeColor}">
+                            <Label
+                                Text="{extensions:Translate BookMayus}"
+                                Style="{StaticResource BookTextStyle}"/>
+                        </Grid>
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BookRoomCommand}" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <!-- Забронировать конференц-зал -->
+                    <Grid
+                        Grid.Row="0"
+                        Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="75*" />
+                            <RowDefinition Height="25*" />
+                        </Grid.RowDefinitions>
+
+                        <ffimageloading:CachedImage  
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Aspect="AspectFill">
+                            <ffimageloading:CachedImage.Source>
+                                <OnPlatform x:TypeArguments="ImageSource">
+                                    <On Platform="Android" Value="img_2" />
+                                    <On Platform="UWP" Value="Assets/img_2.png" />
+                                </OnPlatform>
+                            </ffimageloading:CachedImage.Source>
+                        </ffimageloading:CachedImage>
+
+                        <Grid   
+                            Grid.Row="1"
+                            BackgroundColor="{StaticResource WhiteColor}">
+                            <Label
+                                Text="ЗАБРОНИРОВАТЬ&#x0a;КОНФЕРЕНЦ-ЗАЛ"
+                                Style="{StaticResource BookConferenceTextStyle}"/>
+                        </Grid>
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BookConferenceCommand}" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <!-- Ресторан -->
+                    <Grid
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        BackgroundColor="{StaticResource WhiteColor}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*" />
+                            <RowDefinition Height="7*" />
+                        </Grid.RowDefinitions>
+
+                        <StackLayout
+                            Grid.Row="0"
+                            Orientation="Horizontal">
+                            <Label
+                                Text="{extensions:Translate Suggestions}"
+                                Style="{StaticResource SuggestionsTextStyle}"/>
+
+                            <Label   
+                                Text="{extensions:Translate SeeAll}"
+                                HorizontalOptions="EndAndExpand"
+                                Style="{StaticResource SeeAllTextStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout
+                            Grid.Row="1">
+                            <Label            
+                                Text="{extensions:Translate Restaurant}"
+                                Style="{StaticResource RestaurantTextStyle}"/>
+
+                            <Label   
+                                Text="{extensions:Translate EatToday}"
+                                Style="{StaticResource RestaurantDetailTextStyle}"/>
+
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SuggestionsCommand}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Grid>
+
+                    <!-- Разное -->
+                    <Grid
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        RowSpacing="0">
+                        <ffimageloading:CachedImage  
+                            Aspect="AspectFill">
+                            <ffimageloading:CachedImage.Source>
+                                <OnPlatform x:TypeArguments="ImageSource">
+                                    <On Platform="Android" Value="img_3" />
+                                    <On Platform="UWP" Value="Assets/img_3.png" />
+                                </OnPlatform>
+                            </ffimageloading:CachedImage.Source>
+                        </ffimageloading:CachedImage>
+                    </Grid>
+                </Grid>
+
+                <!-- Бронирование есть -->
+                <Grid
+                    IsVisible="{Binding HasBooking}"
+                    ColumnSpacing="0"
+                    RowSpacing="0"
+                    Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4.5*" />
+                        <RowDefinition Height="5.5*" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Температура в номере -->
+                    <Grid
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        BackgroundColor="{StaticResource GrayColor}">
+                        <microcharts:ChartView 
+                            Chart="{Binding TemperatureChart}"
+                            IsVisible="true"
+                            VerticalOptions="End"
+                            HeightRequest="120"
+                            WidthRequest="180"/>
+
+                        <Label  
+                            Text="{extensions:Translate RoomTemperature}"
+                            Style="{StaticResource ChartTextStyle}"/>
+                    </Grid>
+
+                    <!-- Уровень света -->
+                    <Grid
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        BackgroundColor="{StaticResource GrayColor}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <ffimageloading:CachedImage     
+                            Grid.Row="0" 
+                            Aspect="AspectFit"
+                            Margin="16, 36, 16, 6">
+                            <ffimageloading:CachedImage.Source>
+                                <OnPlatform x:TypeArguments="ImageSource">
+                                    <On Platform="Android" Value="ambient_light" />
+                                    <On Platform="UWP" Value="Assets/ambient_light.png" />
+                                </OnPlatform>
+                            </ffimageloading:CachedImage.Source>
+                        </ffimageloading:CachedImage>
+
+                        <Label     
+                            Grid.Row="0"
+                            Text="{extensions:Translate AmbientLight}"
+                            Style="{StaticResource ChartTextStyle}"/>
+
+                        <!-- График уборки -->
+                        <microcharts:ChartView    
+                            Grid.Row="1"
+                            Chart="{Binding GreenChart}"
+                            IsVisible="true"
+                            VerticalOptions="End"
+                            HorizontalOptions="Fill"
+                            HeightRequest="120"/>
+
+                        <Label     
+                            Grid.Row="1"
+                            Text="{extensions:Translate BeGreen}"
+                            Style="{StaticResource BeGreenTextStyle}"/>
+                    </Grid>
+
+                    <!-- Ресторан -->
+                    <Grid
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        BackgroundColor="{StaticResource WhiteColor}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*" />
+                            <RowDefinition Height="7*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <StackLayout
+                            Grid.Row="0"
+                            Orientation="Horizontal">
+                            <Label
+                                Text="{extensions:Translate Suggestions}"
+                                Style="{StaticResource SuggestionsTextStyle}"/>
+
+                            <Label   
+                                Text="{extensions:Translate SeeAll}"
+                                HorizontalOptions="EndAndExpand"
+                                Style="{StaticResource SeeAllTextStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout
+                            Grid.Row="1">
+                            <Label            
+                                Text="{extensions:Translate Restaurant}"
+                                Style="{StaticResource RestaurantTextStyle}"/>
+
+                            <Label   
+                                Text="{extensions:Translate EatToday}"
+                                Style="{StaticResource RestaurantDetailTextStyle}"/>
+
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SuggestionsCommand}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <Grid   
+                            Grid.Row="2"
+                            Style="{StaticResource GoMyRoomPanel2Style}">
+                            <Label    
+                                Text="{extensions:Translate GoMyRoomMayus}"
+                                Style="{StaticResource BookTextStyle}"/>
+
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoMyRoomCommand}" />
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </Grid>
+
+                    <!-- Разное -->
+                    <Grid
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <ffimageloading:CachedImage  
+                            Grid.Row="0"
+                            Aspect="AspectFill">
+                            <ffimageloading:CachedImage.Source>
+                                <OnPlatform x:TypeArguments="ImageSource">
+                                    <On Platform="Android" Value="img_3" />
+                                    <On Platform="UWP" Value="Assets/img_3.png" />
+                                </OnPlatform>
+                            </ffimageloading:CachedImage.Source>
+                        </ffimageloading:CachedImage>
+
+                        <Grid   
+                            Grid.Row="1"
+                            Style="{StaticResource BookConferencePanel2Style}">
+                            <Label      
+                                Text="{extensions:Translate BookConferenceMayus}"
+                                Style="{StaticResource BookTextStyle}"/>
+
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BookConferenceCommand}" />
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <ActivityIndicator 
+                Color="{StaticResource AccentColor}"
+                IsRunning="{Binding IsBusy}" 
+                IsVisible="{Binding IsBusy}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

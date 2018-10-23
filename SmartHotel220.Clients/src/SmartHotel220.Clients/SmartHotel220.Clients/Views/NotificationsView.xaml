@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Name="Self"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:extensions="clr-namespace:SmartHotel220.Clients.Core.MarkupExtensions"
+    xmlns:utils="clr-namespace:SmartHotel220.Clients.Core.Utils;assembly=SmartHotel220.Clients.Core"
+    xmlns:templates="clr-namespace:SmartHotel220.Clients.Core.Views.Templates;assembly=SmartHotel220.Clients.Core"
+    x:Class="SmartHotel220.Clients.Core.Views.NotificationsView"
+    utils:NavigationBarAttachedProperty.TextColor="{StaticResource WhiteColor}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style 
+                x:Key="NoNotificationsTextStyle" 
+                TargetType="Label"
+                BasedOn="{StaticResource RobotoMediumLabelStyle}">
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid 
+            RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid 
+                Grid.Row="1">
+                <!--Фоновое изображение-->
+                <Image 
+                    Aspect="AspectFill">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="Android" Value="img_header_background_1" />
+                            <On Platform="UWP" Value="Assets/img_header_background_1.png" />
+                        </OnPlatform>
+                    </Image.Source>
+                </Image>
+
+                <Grid>
+                    <!--Нет элементов-->
+                    <Label   
+                        IsVisible="{Binding HasItems, Converter={StaticResource InverseBoolConverter}}"
+                        Text="{extensions:Translate NoNotifications}"
+                        Style="{StaticResource NoNotificationsTextStyle}"/>
+
+                    <ListView
+                        x:Name="NotificationList"
+                        BackgroundColor="Transparent"
+                        ItemsSource="{Binding Notifications, Mode=OneWay}"
+                        RowHeight="150"
+                        CachingStrategy="RecycleElement" 
+                        SeparatorVisibility="None">
+                        <ListView.Header>
+                            <!-- Пробел для кнопки "назад" -->
+                            <BoxView>
+                                <BoxView.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="Android" Value="65" />
+                                    </OnPlatform>
+                                </BoxView.HeightRequest>
+                            </BoxView>
+                        </ListView.Header>
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <templates:NotificationDetailItemTemplate
+                                        DeleteCommand="{Binding BindingContext.DeleteNotificationCommand, Source={x:Reference Self}}" />
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

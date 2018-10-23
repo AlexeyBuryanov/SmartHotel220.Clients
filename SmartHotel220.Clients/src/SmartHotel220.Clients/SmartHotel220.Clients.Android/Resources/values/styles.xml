@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+  <style name="MainTheme" parent="MainTheme.Base"></style>
+  <!-- Базовая тема применяется независимо от того, какой API -->
+  <style name="MainTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!--Если используется ревизия 22.1, то лучше использовать только windowNoTitle. Без android:-->
+    <item name="windowNoTitle">true</item>
+    <!--Мы будем использовать toolBar, поэтому не нужно показывать ActionBar-->
+    <item name="windowActionBar">false</item>
+    <!-- Задаём цвета темы из http://www.google.com/design/spec/style/color.html#color-color-palette -->
+    <!-- colorPrimary используется для фона action bar'a по умолчанию -->
+    <item name="colorPrimary">#2196F3</item>
+    <!-- colorPrimaryDark используется для статус-бара -->
+    <item name="colorPrimaryDark">#212C37</item>
+    <!-- colorAccent используется, как значение по умолчанию для colorControlActivated
+         который используется для отображения виджета -->
+    <item name="colorAccent">#BC4C1B</item>
+    <!-- Можно ещё установить colorControlNormal, colorControlActivated
+         colorControlHighlight и colorSwitchThumbNormal. -->
+    <item name="windowActionModeOverlay">true</item>
+
+    <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
+    <item name="android:textCursorDrawable">@null</item>
+    <item name="android:colorActivatedHighlight">@android:color/transparent</item>
+    <item name="android:windowBackground">@drawable/bg_splash</item>
+    <item name="android:actionBarSize">120dp</item>
+  </style>
+
+  <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+    <item name="colorAccent">#FF4081</item>
+  </style>
+
+  <style name="SplashTheme" parent="MainTheme.Base">
+    <item name="android:background">@drawable/splash_drawable</item>
+  </style>
+</resources>

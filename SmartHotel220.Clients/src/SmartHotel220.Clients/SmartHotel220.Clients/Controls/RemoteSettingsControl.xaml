@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SmartHotel220.Clients.Core.Controls.RemoteSettingsControl"
+    BackgroundColor="{StaticResource WhiteColor}">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <!-- Цвета -->
+            <Color x:Key="BlackTextColor">#253748</Color>
+            <Color x:Key="OrangeColor">#BC4C1B</Color>
+            <Color x:Key="WhiteColor">#FFFFFF</Color>
+            
+            <!-- Шрифты -->
+            <OnPlatform 
+                x:Key="RobotoBold"
+                x:TypeArguments="x:String"
+                iOS="Roboto-Bold"
+                Android="Roboto-Bold.ttf#Roboto"
+                WinPhone="/Assets/Fonts/Roboto-Bold.ttf#Roboto"/>
+
+            <OnPlatform 
+                x:Key="RobotoRegular"
+                x:TypeArguments="x:String"
+                iOS="Roboto-Regular"
+                Android="Roboto-Regular.ttf#Roboto"
+                WinPhone="/Assets/Fonts/Roboto-Regular.ttf#Roboto"/>
+
+            <OnPlatform 
+                x:Key="RobotoSemiBold"
+                x:TypeArguments="x:String"
+                iOS="Roboto-SemiBold"
+                Android="Roboto-SemiBold.ttf#Roboto"
+                WinPhone="/Assets/Fonts/Roboto-SemiBold.ttf#Roboto"/>
+
+            <OnPlatform 
+                x:Key="LittleSize"
+                x:TypeArguments="x:Double"
+                iOS="11"
+                Android="12"
+                WinPhone="12"/>
+
+            <OnPlatform 
+                x:Key="MidMediumSize"
+                x:TypeArguments="x:Double"
+                iOS="12"
+                Android="14"
+                WinPhone="14"/>
+
+            <OnPlatform 
+                x:Key="MediumSize"
+                x:TypeArguments="x:Double"
+                iOS="14"
+                Android="16"
+                WinPhone="16"/>
+
+            <!-- Стили -->
+            <Style 
+                x:Key="BaseLabelStyle" 
+                TargetType="{x:Type Label}">
+            </Style>
+
+            <Style 
+                TargetType="{x:Type Label}"
+                BasedOn="{StaticResource BaseLabelStyle}" />
+
+            <Style 
+                x:Key="RobotoBoldLabelStyle"
+                TargetType="{x:Type Label}"
+                BasedOn="{StaticResource BaseLabelStyle}">
+                <Setter 
+                    Property="FontFamily"
+                    Value="{StaticResource RobotoBold}" />
+            </Style>
+
+            <Style 
+                x:Key="RobotoRegularLabelStyle"
+                TargetType="{x:Type Label}"
+                BasedOn="{StaticResource BaseLabelStyle}">
+                <Setter 
+                    Property="FontFamily"
+                    Value="{StaticResource RobotoRegular}" />
+            </Style>
+
+            <Style 
+                x:Key="RobotoSemiBoldLabelStyle"
+                TargetType="{x:Type Label}"
+                BasedOn="{StaticResource BaseLabelStyle}">
+                <Setter 
+                    Property="FontFamily"
+                    Value="{StaticResource RobotoSemiBold}" />
+            </Style>
+
+            <Style 
+                x:Key="SettingsTitleStyle" 
+                TargetType="Label"
+                BasedOn="{StaticResource RobotoBoldLabelStyle}">
+                <Setter 
+                    Property="TextColor" 
+                    Value="{StaticResource BlackTextColor}" />
+                <Setter 
+                    Property="FontSize" 
+                    Value="{StaticResource MediumSize}" />
+            </Style>
+
+            <Style 
+                x:Key="SettingsValueTitleStyle" 
+                TargetType="Label"
+                BasedOn="{StaticResource RobotoSemiBoldLabelStyle}">
+                <Setter 
+                    Property="TextColor" 
+                    Value="{StaticResource BlackTextColor}" />
+                <Setter 
+                    Property="FontSize" 
+                    Value="{StaticResource MidMediumSize}" />
+            </Style>
+
+            <Style 
+                x:Key="SettingsValueStyle" 
+                TargetType="Label"
+                BasedOn="{StaticResource RobotoRegularLabelStyle}">
+                <Setter 
+                    Property="TextColor" 
+                    Value="{StaticResource OrangeColor}" />
+                <Setter 
+                    Property="FontSize" 
+                    Value="{StaticResource LittleSize}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+</ContentView>

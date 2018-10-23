@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActivateEcoMode" xml:space="preserve">
+    <value>Активировать ЭКО-режим</value>
+  </data>
+  <data name="AmbientLight" xml:space="preserve">
+    <value>Окружающий свет</value>
+  </data>
+  <data name="AmbientSettings" xml:space="preserve">
+    <value>Настройки окружения</value>
+  </data>
+  <data name="BeGreen" xml:space="preserve">
+    <value>График уборки</value>
+  </data>
+  <data name="BookMayus" xml:space="preserve">
+    <value>ЗАБРОНИРОВАТЬ НОМЕР</value>
+  </data>
+  <data name="Checkout" xml:space="preserve">
+    <value>Выписаться</value>
+  </data>
+  <data name="ConferenceRoom" xml:space="preserve">
+    <value>Конференц-зал</value>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>У Вас нет учётной записи?</value>
+  </data>
+  <data name="CurrentJson" xml:space="preserve">
+    <value>Текущий URL-адрес файла JSON:</value>
+  </data>
+  <data name="DialogBookingMessage" xml:space="preserve">
+    <value>Вы хотите забронировать номер в "{0}"?</value>
+  </data>
+  <data name="DialogBookingTitle" xml:space="preserve">
+    <value>Бронирование</value>
+  </data>
+  <data name="DialogNo" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="DialogOk" xml:space="preserve">
+    <value>ОК</value>
+  </data>
+  <data name="DialogYes" xml:space="preserve">
+    <value>Да</value>
+  </data>
+  <data name="DoubleRoom" xml:space="preserve">
+    <value>Двухместный номер</value>
+  </data>
+  <data name="ExceptionMessage" xml:space="preserve">
+    <value>Произошла ошибка, повторите попытку</value>
+  </data>
+  <data name="ExceptionTitle" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="FindRoom" xml:space="preserve">
+    <value>Найти мой номер</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Забыли пароль?</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Здравствуйте,</value>
+  </data>
+  <data name="HttpRequestExceptionMessage" xml:space="preserve">
+    <value>Ошибка связи: {0}</value>
+  </data>
+  <data name="HttpRequestExceptionTitle" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="IndividualRoom" xml:space="preserve">
+    <value>Индивидуальный номер</value>
+  </data>
+  <data name="LoadJson" xml:space="preserve">
+    <value>Загрузка с JSON</value>
+  </data>
+  <data name="MusicVolume" xml:space="preserve">
+    <value>Громкость музыки</value>
+  </data>
+  <data name="NewBookingMayus" xml:space="preserve">
+    <value>СДЕЛАТЬ НОВОЕ БРОНИРОВАНИЕ</value>
+  </data>
+  <data name="NextMayus" xml:space="preserve">
+    <value>ДАЛЬШЕ</value>
+  </data>
+  <data name="NfcMessage01" xml:space="preserve">
+    <value>Пожалуйста, проведите своё устройство</value>
+  </data>
+  <data name="NfcMessage02" xml:space="preserve">
+    <value>в области карты NFC.</value>
+  </data>
+  <data name="OpenDoor" xml:space="preserve">
+    <value>Открыть двери</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="RemoteJson" xml:space="preserve">
+    <value>Удалённый URL-адрес файла JSON</value>
+  </data>
+  <data name="Restaurant" xml:space="preserve">
+    <value>Ресторан</value>
+  </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>Отзывы</value>
+  </data>
+  <data name="Rooms" xml:space="preserve">
+    <value>Номера</value>
+  </data>
+  <data name="RoomTemperature" xml:space="preserve">
+    <value>Температура в номере</value>
+  </data>
+  <data name="SeeYou" xml:space="preserve">
+    <value>Надеемся увидеть Вас снова</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Обслуживание</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="SignInMayus" xml:space="preserve">
+    <value>ВОЙТИ</value>
+  </data>
+  <data name="SignInMicrosoftMayus" xml:space="preserve">
+    <value>ВОЙТИ ЧЕРЕЗ AAD B2C</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Зарегистрироваться</value>
+  </data>
+  <data name="Suggestions" xml:space="preserve">
+    <value>Предложения</value>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>Температура</value>
+  </data>
+  <data name="TheHotel" xml:space="preserve">
+    <value>Отель</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Имя пользователя</value>
+  </data>
+  <data name="Where" xml:space="preserve">
+    <value>Где</value>
+  </data>
+  <data name="WindowBlinds" xml:space="preserve">
+    <value>Жалюзи</value>
+  </data>
+  <data name="CheckInOut" xml:space="preserve">
+    <value>Регистрация/выписка</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="SeeAll" xml:space="preserve">
+    <value>Все +</value>
+  </data>
+  <data name="EatToday" xml:space="preserve">
+    <value>Что Вы хотите сегодня есть?</value>
+  </data>
+  <data name="BookConferenceMayus" xml:space="preserve">
+    <value>ЗАБРОНИРОВАТЬ КОНФЕРЕНЦ-ЗАЛ</value>
+  </data>
+  <data name="GoMyRoomMayus" xml:space="preserve">
+    <value>В МОЙ НОМЕР</value>
+  </data>
+  <data name="NoNotifications" xml:space="preserve">
+    <value>Нет уведомлений</value>
+  </data>
+  <data name="Activities" xml:space="preserve">
+    <value>Мероприятия</value>
+  </data>
+  <data name="DoToday" xml:space="preserve">
+    <value>Что Вы хотите сделать сегодня?</value>
+  </data>
+  <data name="NotImplemented" xml:space="preserve">
+    <value>Не реализовано</value>
+  </data>
+  <data name="Coming" xml:space="preserve">
+    <value>Скоро</value>
+  </data>
+  <data name="HighOccupancy" xml:space="preserve">
+    <value>Занятость в выбранные числа очень высока. Скорее забронируйте свой номер!</value>
+  </data>
+  <data name="LowOccupancy" xml:space="preserve">
+    <value>Высокая доступность в выбранные даты.</value>
+  </data>
+  <data name="MediumOccupancy" xml:space="preserve">
+    <value>Занятость в выбранные числа значительная.</value>
+  </data>
+  <data name="NoNfc" xml:space="preserve">
+    <value>NFC недоступен</value>
+  </data>
+  <data name="ExceptionB2CMessage" xml:space="preserve">
+    <value>Только пользователи B2C могут забронировать номер.</value>
+  </data>
+  <data name="BotError" xml:space="preserve">
+    <value>Не удалось запустить бота.</value>
+  </data>
+  <data name="BotSelectionMessage" xml:space="preserve">
+    <value>Выберите приложение для обмена сообщениями.</value>
+  </data>
+  <data name="BotSelectionTitle" xml:space="preserve">
+    <value>Выбор бота</value>
+  </data>
+  <data name="DeactivateEcoMode" xml:space="preserve">
+    <value>Деактивировать ЭКО-режим</value>
+  </data>
+</root>
