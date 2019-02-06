@@ -17,5 +17,10 @@ SmartHotel220 – fictional hotel company, which demonstrates the future of trav
 - Get a list suggestions (by SmartHotel220) restaurants or/and cafe;
 - Possibility to open the door in the room using NFC technology.
 
+# Screenshots
+<img src="docs/screenshots/Screenshot_1549370029.png" Width="210" /> <img src="docs/screenshots/Screenshot_1549370047.png" Width="210" /> <img src="docs/screenshots/Screenshot_1549370063.png" Width="210" /> <img src="docs/screenshots/Screenshot_1549370552.png" Width="210" /> 
+<img src="docs/screenshots/Screenshot_1549370837.png" Width="210" /> <img src="docs/screenshots/Screenshot_1549370845.png" Width="210" /> <img src="docs/screenshots/Screenshot_1549370850.png" Width="210" /> <img src="docs/screenshots/Screenshot_1549370961.png" Width="210" /> 
+<img src="docs/screenshots/Screenshot_1549373901.png" Width="210" /> <img src="docs/screenshots/Screenshot_1549373919.png" Width="210" /> <img src="docs/screenshots/Screenshot_1549373960.png" Width="210" /> <img src="docs/screenshots/Screenshot_1549374008.png" Width="210" /> 
+
 ### Using
 Xamarin Forms, Android, UWP, C#, XAML UI, .NET Standard, MVVM, Data Binding, IoC, MS App Center.
